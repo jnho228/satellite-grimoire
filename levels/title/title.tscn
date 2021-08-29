@@ -1,0 +1,424 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://levels/title/title.gd" type="Script" id=1]
+[ext_resource path="res://fonts/FutilePro.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://fonts/EquipmentPro.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://levels/title/scrolling_background/Space Background (3).png" type="Texture" id=4]
+[ext_resource path="res://audio/sfx/gui/ui_confirm.wav" type="AudioStream" id=5]
+[ext_resource path="res://audio/sfx/gui/ui_cancel.wav" type="AudioStream" id=6]
+[ext_resource path="res://audio/sfx/gui/ui_error.wav" type="AudioStream" id=7]
+[ext_resource path="res://audio/sfx/gui/ui_select.wav" type="AudioStream" id=8]
+[ext_resource path="res://shaders/blur.shader" type="Shader" id=9]
+[ext_resource path="res://levels/title/scrolling_background/Space Background (4).png" type="Texture" id=10]
+[ext_resource path="res://levels/title/scrolling_background/Space Background (2).png" type="Texture" id=11]
+[ext_resource path="res://levels/title/scrolling_background/Space Background (5).png" type="Texture" id=12]
+[ext_resource path="res://levels/title/scrolling_background/Space Background (6).png" type="Texture" id=13]
+
+[sub_resource type="DynamicFont" id=1]
+size = 256
+outline_size = 10
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 96
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 64
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 64
+font_data = ExtResource( 3 )
+
+[sub_resource type="ShaderMaterial" id=5]
+shader = ExtResource( 9 )
+shader_param/amount = 2.5
+
+[sub_resource type="DynamicFont" id=6]
+size = 256
+outline_size = 10
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="Animation" id=7]
+resource_name = "hide"
+length = 0.2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+length = 0.2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[node name="Title" type="Node"]
+script = ExtResource( 1 )
+soundEffects = [ ExtResource( 8 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ]
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="UI"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 10
+custom_constants/margin_top = 0
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/MarginContainer"]
+margin_left = 10.0
+margin_right = 1910.0
+margin_bottom = 1080.0
+custom_constants/separation = 25
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TitleText" type="Label" parent="UI/MarginContainer/VBoxContainer"]
+margin_left = 270.0
+margin_right = 1630.0
+margin_bottom = 507.0
+size_flags_horizontal = 4
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color_shadow = Color( 0.109804, 0.498039, 0.792157, 1 )
+custom_constants/shadow_offset_x = 10
+custom_constants/shadow_offset_y = 10
+text = "Satellite
+    Grimoire"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StartText" type="Label" parent="UI/MarginContainer/VBoxContainer"]
+margin_left = 860.0
+margin_top = 532.0
+margin_right = 1040.0
+margin_bottom = 628.0
+size_flags_horizontal = 4
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 5
+custom_constants/shadow_offset_y = 5
+text = "Start"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ExtraText" type="Label" parent="UI/MarginContainer/VBoxContainer"]
+margin_left = 854.0
+margin_top = 653.0
+margin_right = 1046.0
+margin_bottom = 749.0
+size_flags_horizontal = 4
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 5
+custom_constants/shadow_offset_y = 5
+text = "Extra"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OptionsText" type="Label" parent="UI/MarginContainer/VBoxContainer"]
+margin_left = 818.0
+margin_top = 774.0
+margin_right = 1082.0
+margin_bottom = 870.0
+size_flags_horizontal = 4
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 5
+custom_constants/shadow_offset_y = 5
+text = "Options"
+align = 1
+valign = 1
+
+[node name="QuitText" type="Label" parent="UI/MarginContainer/VBoxContainer"]
+margin_left = 875.0
+margin_top = 895.0
+margin_right = 1025.0
+margin_bottom = 991.0
+size_flags_horizontal = 4
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 5
+custom_constants/shadow_offset_y = 5
+text = "Quit"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/MarginContainer/VBoxContainer"]
+margin_top = 1016.0
+margin_right = 1900.0
+margin_bottom = 1080.0
+
+[node name="CopyrightText" type="Label" parent="UI/MarginContainer/VBoxContainer/HBoxContainer"]
+margin_right = 356.0
+margin_bottom = 64.0
+size_flags_horizontal = 2
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 5
+custom_constants/shadow_offset_y = 5
+text = "© 2021 Nick H."
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VersionText" type="Label" parent="UI/MarginContainer/VBoxContainer/HBoxContainer"]
+margin_left = 1764.0
+margin_right = 1900.0
+margin_bottom = 64.0
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 5
+custom_constants/shadow_offset_y = 5
+text = "v0.0.1"
+align = 2
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OptionsMenu" type="ColorRect" parent="UI"]
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0666667, 0.0941176, 0.215686, 0.392157 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Blur" type="ColorRect" parent="UI/OptionsMenu"]
+material = SubResource( 5 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TitleText" type="Label" parent="UI/OptionsMenu"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -624.0
+margin_top = 100.862
+margin_right = 624.0
+margin_bottom = 324.862
+size_flags_horizontal = 4
+size_flags_vertical = 6
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color_shadow = Color( 0, 0.168627, 0.290196, 1 )
+custom_constants/shadow_offset_x = 10
+custom_constants/shadow_offset_y = 10
+text = "Options"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BGMText" type="Label" parent="UI/OptionsMenu"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -364.144
+margin_top = -106.0
+margin_right = -172.144
+margin_bottom = -10.0
+size_flags_horizontal = 4
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 5
+custom_constants/shadow_offset_y = 5
+text = "BGM"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BGMSlider" type="HSlider" parent="UI/OptionsMenu"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -137.288
+margin_top = -85.6813
+margin_right = 449.712
+margin_bottom = -32.6813
+max_value = 1.0
+step = 0.1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SFXText" type="Label" parent="UI/OptionsMenu"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -364.144
+margin_top = 35.501
+margin_right = -172.144
+margin_bottom = 131.501
+size_flags_horizontal = 4
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 5
+custom_constants/shadow_offset_y = 5
+text = "SFX"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SFXSlider" type="HSlider" parent="UI/OptionsMenu"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -137.288
+margin_top = 53.3109
+margin_right = 449.712
+margin_bottom = 106.311
+max_value = 1.0
+step = 0.1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FullscreenText" type="Label" parent="UI/OptionsMenu"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -330.752
+margin_top = 182.0
+margin_right = 23.2477
+margin_bottom = 278.0
+size_flags_horizontal = 4
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 5
+custom_constants/shadow_offset_y = 5
+text = "Fullscreen"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FullscreenCheckBox" type="CheckBox" parent="UI/OptionsMenu"]
+margin_left = 769.057
+margin_top = 692.698
+margin_right = 848.057
+margin_bottom = 771.698
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ReturnText" type="Label" parent="UI/OptionsMenu"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -318.0
+margin_top = 361.257
+margin_right = 318.0
+margin_bottom = 457.257
+size_flags_horizontal = 4
+custom_fonts/font = SubResource( 2 )
+text = "- ESC to Return -"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/OptionsMenu"]
+anims/hide = SubResource( 7 )
+anims/show = SubResource( 8 )
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+autoplay = true
+bus = "BGM"
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0, 0 )
+motion_mirroring = Vector2( 0, 1080 )
+
+[node name="Space Background (2)" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+texture = ExtResource( 11 )
+centered = false
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2( 0, 1080 )
+
+[node name="Space Background (2)" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
+texture = ExtResource( 4 )
+centered = false
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 1, 1.5 )
+motion_mirroring = Vector2( 0, 1080 )
+
+[node name="Space Background (2)" type="Sprite" parent="ParallaxBackground/ParallaxLayer3"]
+texture = ExtResource( 10 )
+centered = false
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 1, 3 )
+motion_mirroring = Vector2( 0, 1080 )
+
+[node name="Space Background (2)" type="Sprite" parent="ParallaxBackground/ParallaxLayer4"]
+texture = ExtResource( 12 )
+centered = false
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 1, 4.5 )
+motion_mirroring = Vector2( 0, 1080 )
+
+[node name="Space Background (2)" type="Sprite" parent="ParallaxBackground/ParallaxLayer5"]
+texture = ExtResource( 13 )
+centered = false

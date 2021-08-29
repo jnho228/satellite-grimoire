@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/ui_confirm.wav-ee3090c208375be5db8906bb80bad2dd.sample"
+
+[deps]
+
+source_file="res://audio/sfx/gui/ui_confirm.wav"
+dest_files=[ "res://.import/ui_confirm.wav-ee3090c208375be5db8906bb80bad2dd.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
